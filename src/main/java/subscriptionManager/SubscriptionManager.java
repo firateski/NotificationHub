@@ -1,6 +1,6 @@
-package SubscriptionManager;
+package subscriptionManager;
 
-import Util.DateUtil;
+import util.DateUtil;
 import exceptions.NotSubscribedException;
 import model.Company;
 import model.Subscription;

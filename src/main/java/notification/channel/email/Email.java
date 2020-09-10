@@ -5,7 +5,7 @@ import exceptions.NotSubscribedException;
 import model.Company;
 import notification.Notification;
 import notification.NotificationDTO;
-import SubscriptionManager.SubscriptionManager;
+import subscriptionManager.SubscriptionManager;
 
 import java.util.List;
 
