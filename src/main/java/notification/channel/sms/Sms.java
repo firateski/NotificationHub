@@ -16,7 +16,7 @@ public class Sms implements Notification {
 
         Company company = smsDTO.getCompany();
 
-        SubscriptionManager subscriptionManager = new SubscriptionManager(company, this);
+        SubscriptionManager subscriptionManager = new SubscriptionManager(company, Sms.class.getTypeName());
 
         if (subscriptionManager.isCompanyBlacklisted()) throw new CompanyBlacklistedException("Company blacklisted", 1);
         if (!subscriptionManager.isSubscribed()) throw new NotSubscribedException("Not subscribed", 2);

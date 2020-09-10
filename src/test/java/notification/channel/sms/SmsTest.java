@@ -5,6 +5,7 @@ import exceptions.NotSubscribedException;
 import model.Company;
 import model.Subscription;
 import notification.Notification;
+import notification.channel.email.Email;
 import org.junit.Test;
 
 import java.util.*;
@@ -24,7 +25,7 @@ public class SmsTest {
         Notification sms = new Sms();
 
         Subscription subscription = new Subscription();
-        subscription.setChannel(sms);
+        subscription.setNotificationType(Sms.class.getTypeName());
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
 

@@ -25,7 +25,7 @@ public class EmailTest {
         Notification email = new Email();
 
         Subscription subscription = new Subscription();
-        subscription.setChannel(email);
+        subscription.setNotificationType(Email.class.getTypeName());
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
 
@@ -73,7 +73,7 @@ public class EmailTest {
         Notification email = new Email();
 
         Subscription subscription = new Subscription();
-        subscription.setChannel(email);
+        subscription.setNotificationType(Email.class.getTypeName());
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
 

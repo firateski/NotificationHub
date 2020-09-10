@@ -17,7 +17,7 @@ public class Subscription {
 
     private Date getSubscriptionEndDate;
 
-    private Notification channel;
+    private String notificationType;
     private SubscriptionType subscriptionType;
 
     public Company getCompany() {
@@ -84,12 +84,12 @@ public class Subscription {
         this.getSubscriptionEndDate = getSubscriptionEndDate;
     }
 
-    public Notification getChannel() {
-        return channel;
+    public String getNotificationType() {
+        return notificationType;
     }
 
-    public void setChannel(Notification channel) {
-        this.channel = channel;
+    public void setNotificationType(String notificationType) {
+        this.notificationType = notificationType;
     }
 
     public SubscriptionType getSubscriptionType() {

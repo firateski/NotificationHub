@@ -10,20 +10,19 @@ import java.util.Date;
 
 public class SubscriptionManager {
     Company company;
-    Notification notification;
+    String notificationType;
 
-    public SubscriptionManager(Company company, Notification notification) {
+    public SubscriptionManager(Company company, String notificationType) {
         this.company = company;
-        this.notification = notification;
+        this.notificationType = notificationType;
     }
 
     public Subscription getSubscription() {
         if(company.getSubscriptions() != null) {
             for (Subscription subscription : company.getSubscriptions()) {
-                String currentNotificationType = subscription.getChannel().getClass().getName();
-                String findNotificationType = notification.getClass().getName();
+                String currentNotificationType = subscription.getNotificationType();
 
-                if (currentNotificationType.equals(findNotificationType)) {
+                if (currentNotificationType.equals(notificationType)) {
                     return subscription;
                 }
             }
