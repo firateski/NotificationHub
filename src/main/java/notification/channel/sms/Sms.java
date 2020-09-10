@@ -21,7 +21,7 @@ public class Sms implements Notification {
         if (subscriptionManager.isCompanyBlacklisted()) throw new CompanyBlacklistedException("Company blacklisted", 1);
         if (!subscriptionManager.isSubscribed()) throw new NotSubscribedException("Not subscribed", 2);
 
-        subscriptionManager.applyProcessCost();
+        subscriptionManager.applyOperationCost();
 
         System.out.printf("SMS sent to %s: %s\n",
                 smsDTO.getPhoneNumber(),

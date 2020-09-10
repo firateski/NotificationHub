@@ -31,7 +31,7 @@ public class SubscriptionManager {
         throw new NotSubscribedException("Not subscribed", 2);
     }
 
-    public void applyProcessCost() {
+    public void applyOperationCost() {
         Subscription subscription = getSubscription();
 
         if (isQuotaExceed()) {
