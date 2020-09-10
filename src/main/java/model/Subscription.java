@@ -5,7 +5,6 @@ import notification.Notification;
 import java.util.Date;
 
 public class Subscription {
-    private int id;
     private Company company;
     private double subscriptionPrice;
     private double exceedPricePerOperation;
@@ -16,19 +15,10 @@ public class Subscription {
     private int quota;
     private int totalUsage;
 
-    private Date subscriptionStartDate;
     private Date getSubscriptionEndDate;
 
     private Notification channel;
     private SubscriptionType subscriptionType;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Company getCompany() {
         return company;
@@ -68,14 +58,6 @@ public class Subscription {
 
     public void setTotalUsage(int totalUsage) {
         this.totalUsage = totalUsage;
-    }
-
-    public Date getSubscriptionStartDate() {
-        return subscriptionStartDate;
-    }
-
-    public void setSubscriptionStartDate(Date subscriptionStartDate) {
-        this.subscriptionStartDate = subscriptionStartDate;
     }
 
     public double getExceedPricePerOperation() {

@@ -1,8 +1,5 @@
 package notification;
 
-import model.Company;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public interface Notification {
