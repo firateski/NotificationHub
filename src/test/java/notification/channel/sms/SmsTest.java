@@ -21,18 +21,15 @@ public class SmsTest {
         calendar.add(Calendar.DAY_OF_MONTH, -60);
         Date sixtyDaysAgoFromNow = calendar.getTime();
 
-        List<Subscription> subscriptionList = new ArrayList<>();
-
         Notification sms = new Sms();
 
         Subscription subscription = new Subscription();
         subscription.setChannel(sms);
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
-        subscriptionList.add(subscription);
 
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
 
         SmsDTO smsDTO = new SmsDTO();
         smsDTO.setCompany(company);

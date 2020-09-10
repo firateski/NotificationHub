@@ -14,14 +14,12 @@ import static org.junit.Assert.assertThrows;
 
 public class EmailTest {
     @Test
-    public void should_throw_error_if_company_blacklisted(){
+    public void should_throw_error_if_company_blacklisted() {
         Date today = new Date();
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(today);
         calendar.add(Calendar.DAY_OF_MONTH, -60);
         Date sixtyDaysAgoFromNow = calendar.getTime();
-
-        List<Subscription> subscriptionList = new ArrayList<>();
 
         Notification email = new Email();
 
@@ -29,10 +27,9 @@ public class EmailTest {
         subscription.setChannel(email);
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
-        subscriptionList.add(subscription);
 
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
 
         EmailDTO emailDTO = new EmailDTO();
         emailDTO.setCompany(company);
@@ -47,7 +44,7 @@ public class EmailTest {
     }
 
     @Test
-    public void should_throw_error_if_company_not_subscribed(){
+    public void should_throw_error_if_company_not_subscribed() {
         Notification email = new Email();
 
         Company company = new Company();

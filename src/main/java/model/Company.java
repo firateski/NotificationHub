@@ -3,6 +3,7 @@ package model;
 import i18n.Language;
 import notification.Notification;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
@@ -10,7 +11,7 @@ public class Company {
     private String name;
     private Language language;
 
-    private List<Subscription> subscriptions;
+    private final List<Subscription> subscriptions = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -40,7 +41,7 @@ public class Company {
         return subscriptions;
     }
 
-    public void setSubscriptions(List<Subscription> subscriptions) {
-        this.subscriptions = subscriptions;
+    public void addSubscription(Subscription subscription) {
+        this.subscriptions.add(subscription);
     }
 }

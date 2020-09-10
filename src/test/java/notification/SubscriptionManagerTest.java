@@ -19,18 +19,15 @@ public class SubscriptionManagerTest {
         calendar.add(Calendar.DAY_OF_MONTH, -60);
         Date sixtyDaysAgoFromNow = calendar.getTime();
 
-        List<Subscription> subscriptionList = new ArrayList<>();
-
         Notification email = new Email();
 
         Subscription subscription = new Subscription();
         subscription.setChannel(email);
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
-        subscriptionList.add(subscription);
 
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
 
         SubscriptionManager subscriptionManager = new SubscriptionManager(company, email);
 
@@ -47,16 +44,13 @@ public class SubscriptionManagerTest {
         calendar.add(Calendar.DAY_OF_MONTH, -59);
         Date sixtyDaysAgoFromNow = calendar.getTime();
 
-        List<Subscription> subscriptionList = new ArrayList<>();
-
         Subscription subscription = new Subscription();
         subscription.setChannel(new Email());
         subscription.setPaid(false);
         subscription.setGetSubscriptionEndDate(sixtyDaysAgoFromNow);
-        subscriptionList.add(subscription);
 
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
 
         SubscriptionManager subscriptionManager = new SubscriptionManager(company, new Email());
 
@@ -74,11 +68,8 @@ public class SubscriptionManagerTest {
         subscription.setQuota(1000);
         subscription.setTotalUsage(1000);
 
-        List<Subscription> subscriptionList = new ArrayList<>();
-        subscriptionList.add(subscription);
-
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
         SubscriptionManager subscriptionManager = new SubscriptionManager(company, email);
         boolean output = subscriptionManager.isQuotaExceed();
         assertTrue(output);
@@ -93,11 +84,9 @@ public class SubscriptionManagerTest {
         subscription.setQuota(1000);
         subscription.setTotalUsage(999);
 
-        List<Subscription> subscriptionList = new ArrayList<>();
-        subscriptionList.add(subscription);
-
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
+
         SubscriptionManager subscriptionManager = new SubscriptionManager(company, email);
         boolean output = subscriptionManager.isQuotaExceed();
         assertFalse(output);
@@ -105,14 +94,12 @@ public class SubscriptionManagerTest {
 
     @Test
     public void should_return_true_if_subscribed(){
-        List<Subscription> subscriptionList = new ArrayList<>();
         Subscription subscription = new Subscription();
         Notification email = new Email();
         subscription.setChannel(email);
-        subscriptionList.add(subscription);
 
         Company company = new Company();
-        company.setSubscriptions(subscriptionList);
+        company.addSubscription(subscription);
         SubscriptionManager subscriptionManager = new SubscriptionManager(company, email);
         boolean output = subscriptionManager.isSubscribed();
         assertTrue(output);
