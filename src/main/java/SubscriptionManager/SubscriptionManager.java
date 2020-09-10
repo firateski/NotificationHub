@@ -1,9 +1,10 @@
-package notification;
+package SubscriptionManager;
 
 import Util.DateUtil;
 import exceptions.NotSubscribedException;
 import model.Company;
 import model.Subscription;
+import notification.Notification;
 
 import java.util.Date;
 

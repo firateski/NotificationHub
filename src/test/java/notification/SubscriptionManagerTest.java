@@ -1,5 +1,6 @@
 package notification;
 
+import SubscriptionManager.SubscriptionManager;
 import model.Company;
 import model.Subscription;
 import model.SubscriptionType;
