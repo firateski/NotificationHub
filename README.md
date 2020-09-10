@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/firateski/NotificationHub/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 # Notification Hub Project
 
 ### Usage
